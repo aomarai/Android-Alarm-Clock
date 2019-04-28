@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".RecursiveAlarm"></activity>
+        <activity android:name=".LocationAlarm"></activity>
+        <activity android:name=".RecursiveAlarm" />
         <activity android:name=".TimerActivity" />
         <activity android:name=".AddAlarmActivity" />
         <activity
