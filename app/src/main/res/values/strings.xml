@@ -9,4 +9,5 @@
     <string name="timer">Timer</string>
     <string name="start">Start!</string>
     <string name="enter_time_for_timer">Enter Time for Timer</string>
+    <string name="s_m_t_w_th_f_sa">S M T W Th F Sa</string>
 </resources>

@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#592196F3"
     tools:context=".AddAlarmActivity">
 
     <CalendarView
@@ -12,11 +11,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="72dp"
         android:layout_marginEnd="16dp"
-        android:selectedWeekBackgroundColor="#00A51515"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.482"
+        app:layout_constraintHorizontal_bias="0.448"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -28,13 +26,13 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        android:headerBackground="@color/colorPrimary"
-        android:numbersSelectorColor="#661E07"
+        android:numbersSelectorColor="#00680F0F"
         app:layout_constraintBottom_toTopOf="@+id/button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.437"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/setAlarmDate" />
+        app:layout_constraintTop_toBottomOf="@+id/setAlarmDate"
+        app:layout_constraintVertical_bias="0.3" />
 
     <Button
         android:id="@+id/button"
@@ -43,7 +41,6 @@
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="60dp"
-        android:background="#4CAF50"
         android:text="@string/set_alarm"
         android:textSize="21sp"
         app:layout_constraintBottom_toBottomOf="parent"
