@@ -13,8 +13,40 @@ public class MainScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_screen);
 
-        Button addAlarm = findViewById(R.id.addAlarmBtn);
-        addAlarm.setOnClickListener(new View.OnClickListener() {
+
+        //TODO create Timer page
+        Button addTimer = findViewById(R.id.TimerBtn);
+        addTimer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent addTimerIntent = new Intent(getApplicationContext(), AddAlarmActivity.class);
+                startActivity(addTimerIntent);
+            }
+        });
+
+        //TODO Make sure the previous page works
+        Button addSingleAlarm = findViewById(R.id.SingleAlarm);
+        addSingleAlarm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent addAlarmIntent = new Intent(getApplicationContext(), AddAlarmActivity.class);
+                startActivity(addAlarmIntent);
+            }
+        });
+
+        //TODO create Recursive Alarm page
+        Button addRecursiveAlarm = findViewById(R.id.RecursiveAlarmBtn);
+        addSingleAlarm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent addAlarmIntent = new Intent(getApplicationContext(), AddAlarmActivity.class);
+                startActivity(addAlarmIntent);
+            }
+        });
+
+        //TODO create location alarm and check if one exists already
+        Button addLocationAlarm = findViewById(R.id.LocationAlarmButton);
+        addSingleAlarm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent addAlarmIntent = new Intent(getApplicationContext(), AddAlarmActivity.class);
