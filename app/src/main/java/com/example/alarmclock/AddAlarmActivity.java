@@ -18,7 +18,8 @@ public class AddAlarmActivity extends AppCompatActivity {
         addNewAlarm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Set the alarm to start at approximately 12:00 p.m.
+                // Set alarm to go off at noon
+                // We will need use input, but this is the format
                 Calendar calendar = Calendar.getInstance();
                 calendar.setTimeInMillis(System.currentTimeMillis());
                 calendar.set(Calendar.HOUR_OF_DAY, 12);
