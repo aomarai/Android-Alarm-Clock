@@ -46,13 +46,14 @@ public class MainScreen extends AppCompatActivity {
 
         //TODO create location alarm and check if one exists already
         Button addLocationAlarm = findViewById(R.id.LocationAlarmButton);
-        addSingleAlarm.setOnClickListener(new View.OnClickListener() {
+        addLocationAlarm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent addAlarmIntent = new Intent(getApplicationContext(), AddAlarmActivity.class);
-                startActivity(addAlarmIntent);
+                Intent addLocationIntent = new Intent(getApplicationContext(), AddAlarmActivity.class);
+                startActivity(addLocationIntent);
             }
         });
+
 
         //Toolbar toolbar = findViewById(R.id.alarmLabel);
        // setSupportActionBar(toolbar);
