@@ -2,49 +2,64 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/coordinatorLayout2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainScreen">
 
     <LinearLayout
-        android:id="@+id/linearLayout3"
-        android:layout_width="413dp"
-        android:layout_height="631dp"
-        android:layout_marginTop="100dp"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="76dp"
+        android:layout_marginBottom="16dp"
         android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"></LinearLayout>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"></LinearLayout>
 
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/addAlarmBtn"
+    <Button
+        android:id="@+id/SingleAlarm"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:clickable="true"
-        app:backgroundTint="#3F51B5"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:maxImageSize="40dp"
-        app:srcCompat="@android:drawable/ic_menu_add"
-        android:focusable="true" />
+        android:layout_marginStart="104dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/one_time"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/alarmLabel"
+    <Button
+        android:id="@+id/RecursiveAlarmBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:ems="10"
-        android:hint="@string/title"
-        android:importantForAutofill="no"
-        android:inputType="textPersonName"
-        android:text="@string/alarm_clocks"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toStartOf="@+id/addAlarmBtn"
-        app:layout_constraintHorizontal_bias="0.4"
+        android:text="@string/repeating"
+        app:layout_constraintEnd_toStartOf="@+id/LocationAlarmButton"
+        app:layout_constraintStart_toEndOf="@+id/SingleAlarm"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/LocationAlarmButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/location"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/TimerBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/timer"
+        app:layout_constraintEnd_toStartOf="@+id/SingleAlarm"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 </android.support.constraint.ConstraintLayout>

@@ -19,7 +19,7 @@ public class MainScreen extends AppCompatActivity {
         addTimer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent addTimerIntent = new Intent(getApplicationContext(), AddAlarmActivity.class);
+                Intent addTimerIntent = new Intent(getApplicationContext(), TimerActivity.class);
                 startActivity(addTimerIntent);
             }
         });
