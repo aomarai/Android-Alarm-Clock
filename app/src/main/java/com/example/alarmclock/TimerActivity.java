@@ -1,15 +1,18 @@
 package com.example.alarmclock;
 
 import android.app.AlarmManager;
+import android.app.AlertDialog;
 import android.app.PendingIntent;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -21,6 +24,7 @@ public class TimerActivity extends AppCompatActivity {
     private Button timerButton;
     private EditText timerEditTextField;
     private String inputTime;
+    private String alarmMessage;
     private int hours, minutes;
     private long timeInMilli;
 
@@ -57,6 +61,25 @@ public class TimerActivity extends AppCompatActivity {
                     }
 
                 }
+
+                final EditText timerMessage = new EditText(TimerActivity.this);
+
+                new AlertDialog.Builder(TimerActivity.this)
+                        .setTitle("Alarm Message")
+                        .setMessage("Type in a message for your alarm")
+                        .setView(timerMessage)
+                        .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int x) {
+                        alarmMessage = timerMessage.getText().toString();
+                        // deal with the editable
+                    }
+                })
+                        .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int x) {
+                    }
+                }).show();
+
+
             }
         });
 
