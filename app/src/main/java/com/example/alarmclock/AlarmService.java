@@ -19,8 +19,9 @@ public class AlarmService extends IntentService {
         //sendNotification("Alarm going off!");
     }
 
-    /*
-    private void sendNotification(String message){
+
+    private void addNotification(String message){
+        /*
         notificationManager = (NotificationManager) this.getSystemService
                 (Context.NOTIFICATION_SERVICE);
 
@@ -35,6 +36,7 @@ public class AlarmService extends IntentService {
         //Build and send the notification
         notificationBuilder.setContentIntent(conInt);
         notificationManager.notify(1, notificationBuilder.build());
+        */
     }
-    */
+
 }

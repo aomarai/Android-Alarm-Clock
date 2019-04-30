@@ -18,22 +18,38 @@ import java.util.GregorianCalendar;
 public class AddAlarmActivity extends AppCompatActivity {
     AlarmManager alarmManager;
     private PendingIntent pendingIntent;
-    private TimePicker timePicker1 = (TimePicker) findViewById(R.id.timePicker1);
+    private TimePicker timePicker1;
+    private static AddAlarmActivity inst;
+    private CalendarView calendarView;
+    int year, month, dayOfMonth;
+
+
+    @Override
+    public void onStart(){
+        super.onStart();
+        inst = this;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_alarm);
+        alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
+        timePicker1 = (TimePicker) findViewById(R.id.timePicker1);
 
-
-        Button setAlarm = findViewById(R.id.button);
-        setAlarm.setOnClickListener(new View.OnClickListener() {
+        final Button setAlarmButton = findViewById(R.id.button);
+        setAlarmButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Calendar calendar = Calendar.getInstance();
-
+                calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
+                    @Override
+                    public void onSelectedDayChange(CalendarView view, int year, int month, int dayOfMonth) {
+                        int hour = timePicker1.getHour();
+                        int minute = timePicker1.getMinute();
+                    }
+               });
             }
-       });
+        });
     }
 
 }
