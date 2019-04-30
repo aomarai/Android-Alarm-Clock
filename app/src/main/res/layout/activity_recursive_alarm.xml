@@ -13,25 +13,25 @@
         android:layout_marginStart="72dp"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/recursiveTimePicker"
+        app:layout_constraintBottom_toTopOf="@+id/SingleTimePicker"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TimePicker
-        android:id="@+id/recursiveTimePicker"
+        android:id="@+id/SingleTimePicker"
         android:layout_width="348dp"
         android:layout_height="379dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="52dp"
         android:numbersSelectorColor="#00680F0F"
-        app:layout_constraintBottom_toTopOf="@+id/recursiveSetAlarm"
+        app:layout_constraintBottom_toTopOf="@+id/SingleSetAlarm"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.489"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/recursiveSetAlarm"
+        android:id="@+id/SingleSetAlarm"
         android:layout_width="159dp"
         android:layout_height="65dp"
         android:layout_marginStart="8dp"
@@ -50,7 +50,7 @@
         android:layout_marginStart="12dp"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/recursiveTimePicker"
+        app:layout_constraintBottom_toTopOf="@+id/SingleTimePicker"
         app:layout_constraintStart_toEndOf="@+id/SundayCheckBox"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -62,7 +62,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/recursiveTimePicker"
+        app:layout_constraintBottom_toTopOf="@+id/SingleTimePicker"
         app:layout_constraintEnd_toStartOf="@+id/ThursdayCheckBox"
         app:layout_constraintStart_toEndOf="@+id/TuesdayCheckBox"
         app:layout_constraintTop_toTopOf="parent" />
@@ -74,7 +74,7 @@
         android:layout_marginStart="12dp"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/recursiveTimePicker"
+        app:layout_constraintBottom_toTopOf="@+id/SingleTimePicker"
         app:layout_constraintStart_toEndOf="@+id/MondayCheckBox"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -85,7 +85,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="12dp"
         android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/recursiveTimePicker"
+        app:layout_constraintBottom_toTopOf="@+id/SingleTimePicker"
         app:layout_constraintEnd_toStartOf="@+id/SaturdayCheckBox"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -96,7 +96,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="12dp"
         android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/recursiveTimePicker"
+        app:layout_constraintBottom_toTopOf="@+id/SingleTimePicker"
         app:layout_constraintEnd_toStartOf="@+id/FridayCheckBox"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -107,7 +107,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="68dp"
         android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/recursiveTimePicker"
+        app:layout_constraintBottom_toTopOf="@+id/SingleTimePicker"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

@@ -16,8 +16,8 @@ public class RecursiveAlarm extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recursive_alarm);
-        recurButton = findViewById(R.id.button);
-        recurPicker = findViewById(R.id.timePicker1);
+        recurButton = findViewById(R.id.RecursiveAlarmBtn);
+        recurPicker = findViewById(R.id.SingleTimePicker);
 
 
     }

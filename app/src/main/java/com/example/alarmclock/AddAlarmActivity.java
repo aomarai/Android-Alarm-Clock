@@ -1,6 +1,7 @@
 package com.example.alarmclock;
 
 import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,14 +9,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CalendarView;
-import android.widget.TextView;
 import android.widget.TimePicker;
-import android.app.PendingIntent;
-import android.widget.Toast;
 
-import java.text.DateFormat;
 import java.util.Calendar;
-import java.util.GregorianCalendar;
 
 public class AddAlarmActivity extends AppCompatActivity {
     private TimePicker timePicker1;
@@ -27,7 +23,7 @@ public class AddAlarmActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_alarm);
-        timePicker1 = findViewById(R.id.timePicker1);
+        timePicker1 = findViewById(R.id.SingleTimePicker);
         calendarView = findViewById(R.id.setAlarmDate);
 
 
@@ -41,7 +37,7 @@ public class AddAlarmActivity extends AppCompatActivity {
         });
 
 
-        final Button setAlarmButton = findViewById(R.id.button);
+        final Button setAlarmButton = findViewById(R.id.SingleSetAlarm);
         setAlarmButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
