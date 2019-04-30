@@ -40,7 +40,7 @@ public class AlarmReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
 
-        createNotification(context, "Timer Alarm Has Gone Off");
+        createNotification(context, message);
 
         /*
         //Play an alert noise
@@ -77,13 +77,13 @@ public class AlarmReceiver extends BroadcastReceiver {
 
         //For APIS that are version 26 or newer
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
-            //Create the channel
+            //Create the notification channel
             NotificationChannel mChannel = new NotificationChannel(CHANNEL_ID, name, importance);
             mChannel.setDescription(Description);
             mChannel.enableLights(true);
             mChannel.setLightColor(Color.RED);
             mChannel.enableVibration(true);
-            mChannel.setVibrationPattern(new long[]{100, 200, 300, 400, 500, 400, 300, 200, 400});
+            mChannel.setVibrationPattern(new long[]{100, 200, 300, 400, 500, 400, 300, 200, 100});
             mChannel.setShowBadge(false);
             notificationManager.createNotificationChannel(mChannel);
         }
@@ -98,14 +98,8 @@ public class AlarmReceiver extends BroadcastReceiver {
                 .setDefaults(NotificationCompat.DEFAULT_ALL)
                 .setChannelId(CHANNEL_ID);
 
-
-
-
         mBuilder.setContentIntent(notifIntent);
         notificationManager.notify(notifID, mBuilder.build());
 
     }
-
-
-
 }

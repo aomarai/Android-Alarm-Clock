@@ -4,44 +4,32 @@ import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
-import android.os.SystemClock;
-import android.support.design.widget.Snackbar;
-import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.ContextThemeWrapper;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
-
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.concurrent.TimeUnit;
 
 public class TimerActivity extends AppCompatActivity {
-    private AlarmManager alarmMgr;
-    private PendingIntent alarmPendingIntent;
     private Button timerButton;
     private EditText timerEditTextField;
     private String inputTime;
     private int hours, minutes;
     private long timeInMilli;
-    private Context context;
-   // private AlarmReceiver alarmReceiver = new AlarmReceiver();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_timer);
-        timerButton = (Button) findViewById(R.id.startTimerBtn);
-        timerEditTextField = (EditText) findViewById(R.id.TimerTextField);
+        timerButton =  findViewById(R.id.startTimerBtn);
+        timerEditTextField = findViewById(R.id.TimerTextField);
 
         //Listens for button press
         timerButton.setOnClickListener(new View.OnClickListener() {
@@ -60,6 +48,8 @@ public class TimerActivity extends AppCompatActivity {
                         hours = date.getHours();
                         minutes = date.getMinutes();
                         timeInMilli = (TimeUnit.HOURS.toMillis(hours)) + (TimeUnit.MINUTES.toMillis(minutes));
+                        //TODO: Retrieve user input for message and place it here when the UI is updated
+                        AlarmReceiver.message = "This is a test message";
 
                         setAlarm();
 
@@ -69,13 +59,10 @@ public class TimerActivity extends AppCompatActivity {
                 }
             }
         });
-        //Calendar cal = Calendar.getInstance();
-
-
 
     }
 
-    protected void setAlarm(){
+    private void setAlarm(){
        Intent alarmIntent = new Intent(this, AlarmReceiver.class);
        AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
        alarmManager.set(AlarmManager.RTC_WAKEUP, new GregorianCalendar().getTimeInMillis()+timeInMilli,

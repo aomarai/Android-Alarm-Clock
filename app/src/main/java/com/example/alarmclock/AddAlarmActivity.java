@@ -11,45 +11,67 @@ import android.widget.CalendarView;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.app.PendingIntent;
+import android.widget.Toast;
+
 import java.text.DateFormat;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 public class AddAlarmActivity extends AppCompatActivity {
-    AlarmManager alarmManager;
-    private PendingIntent pendingIntent;
     private TimePicker timePicker1;
-    private static AddAlarmActivity inst;
     private CalendarView calendarView;
-    int year, month, dayOfMonth;
-
-
-    @Override
-    public void onStart(){
-        super.onStart();
-        inst = this;
-    }
+    private String userMessage;
+    int selYear, selMonth, selDayOfMonth, hour, minute;
+    long timeInMilli;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_alarm);
-        alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
-        timePicker1 = (TimePicker) findViewById(R.id.timePicker1);
+        timePicker1 = findViewById(R.id.timePicker1);
+        calendarView = findViewById(R.id.setAlarmDate);
+
+
+        calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
+            @Override
+            public void onSelectedDayChange(CalendarView view, int year, int month, int dayOfMonth) {
+                selYear = year;
+                selDayOfMonth = dayOfMonth;
+                selMonth = month;
+            }
+        });
+
 
         final Button setAlarmButton = findViewById(R.id.button);
         setAlarmButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
-                    @Override
-                    public void onSelectedDayChange(CalendarView view, int year, int month, int dayOfMonth) {
-                        int hour = timePicker1.getHour();
-                        int minute = timePicker1.getMinute();
-                    }
-               });
+                hour = timePicker1.getHour();
+                minute = timePicker1.getMinute();
+                //TODO: Set user message from input field once UI is updated
+                AlarmReceiver.message="Date Message Test";
+
+                setAlarm();
+                //Toast.makeText(getApplicationContext(), "Minute " + minute, Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    //TODO: Fire alarm
+    private void setAlarm(){
+        Intent alarmIntent = new Intent(this, AlarmReceiver.class);
+        PendingIntent alarmPendingIntent = PendingIntent.getBroadcast(this, 1, alarmIntent, 0);
+        Calendar c = Calendar.getInstance();
+        //Set time to the current system's time
+        c.setTimeInMillis(System.currentTimeMillis());
+        c.clear();
+        c.set(selYear, selMonth, selDayOfMonth, hour, minute);
+        AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+        //Set the alarm
+        alarmManager.set(AlarmManager.RTC_WAKEUP, c.getTimeInMillis(), alarmPendingIntent);
+
+
+
     }
 
 }

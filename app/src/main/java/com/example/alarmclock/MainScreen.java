@@ -36,26 +36,24 @@ public class MainScreen extends AppCompatActivity {
 
         //TODO create Recursive Alarm page
         Button addRecursiveAlarm = findViewById(R.id.RecursiveAlarmBtn);
-        addSingleAlarm.setOnClickListener(new View.OnClickListener() {
+        addRecursiveAlarm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent addAlarmIntent = new Intent(getApplicationContext(), AddAlarmActivity.class);
-                startActivity(addAlarmIntent);
+                Intent recursiveAlarmIntent = new Intent(getApplicationContext(), RecursiveAlarm.class);
+                startActivity(recursiveAlarmIntent);
             }
         });
 
         //TODO create location alarm and check if one exists already
         Button addLocationAlarm = findViewById(R.id.LocationAlarmButton);
-        addSingleAlarm.setOnClickListener(new View.OnClickListener() {
+        addLocationAlarm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent addAlarmIntent = new Intent(getApplicationContext(), AddAlarmActivity.class);
-                startActivity(addAlarmIntent);
+                Intent locationAlarmIntent = new Intent(getApplicationContext(), LocationAlarm.class);
+                startActivity(locationAlarmIntent);
             }
         });
 
-        //Toolbar toolbar = findViewById(R.id.alarmLabel);
-       // setSupportActionBar(toolbar);
 
     }
 
