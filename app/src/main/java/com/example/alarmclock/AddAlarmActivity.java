@@ -22,7 +22,6 @@ public class AddAlarmActivity extends AppCompatActivity {
     private CalendarView calendarView;
     private String userMessage;
     int selYear, selMonth, selDayOfMonth, hour, minute;
-    long timeInMilli;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -65,6 +65,7 @@ public class TimerActivity extends AppCompatActivity {
     private void setAlarm(){
        Intent alarmIntent = new Intent(this, AlarmReceiver.class);
        AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+       //Takes current date in milliseconds and adds the user input time that was converted to milliseconds to the current calendar time
        alarmManager.set(AlarmManager.RTC_WAKEUP, new GregorianCalendar().getTimeInMillis()+timeInMilli,
                PendingIntent.getBroadcast(this, 1, alarmIntent,PendingIntent.FLAG_UPDATE_CURRENT));
 
