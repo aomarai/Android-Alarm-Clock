@@ -27,10 +27,10 @@
         android:numbersSelectorColor="#00680F0F"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.32"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/setAlarmDate"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.508" />
 
     <Button
         android:id="@+id/button"
@@ -38,11 +38,12 @@
         android:layout_height="336dp"
         android:layout_marginStart="356dp"
         android:layout_marginEnd="8dp"
+        android:layout_marginBottom="72dp"
         android:text="@string/set_alarm"
         android:textSize="21sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
 
 </android.support.constraint.ConstraintLayout>

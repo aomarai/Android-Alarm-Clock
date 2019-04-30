@@ -67,7 +67,8 @@ public class AddAlarmActivity extends AppCompatActivity {
         c.set(selYear, selMonth, selDayOfMonth, hour, minute);
         AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
         //Set the alarm
-        alarmManager.set(AlarmManager.RTC_WAKEUP, c.getTimeInMillis(), alarmPendingIntent);
+        // Set repeating and keep same logic
+        alarmManager.setExact(AlarmManager.RTC_WAKEUP, c.getTimeInMillis(), alarmPendingIntent);
 
 
 
