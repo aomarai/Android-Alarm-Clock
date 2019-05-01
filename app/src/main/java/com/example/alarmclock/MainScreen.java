@@ -50,7 +50,7 @@ public class MainScreen extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent addLocationIntent = new Intent(getApplicationContext(), AddAlarmActivity.class);
+                Intent addLocationIntent = new Intent(getApplicationContext(), LocationAlarm.class);
                 startActivity(addLocationIntent);
             }
         });
