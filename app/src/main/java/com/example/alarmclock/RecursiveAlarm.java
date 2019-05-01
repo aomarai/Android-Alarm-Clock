@@ -82,9 +82,6 @@ public class RecursiveAlarm extends AppCompatActivity {
                                 public void onClick(DialogInterface dialog, int x) {
                                 }
                             }).show();
-
-
-                    scheduleAlarms();
                 }
         });
 
