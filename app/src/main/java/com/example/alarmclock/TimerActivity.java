@@ -27,7 +27,7 @@ public class TimerActivity extends AppCompatActivity {
     private String alarmMessage;
     private int hours, minutes;
     private long timeInMilli;
-    EditText timerMessage;
+    EditText dialogMessage;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,15 +54,15 @@ public class TimerActivity extends AppCompatActivity {
                         minutes = date.getMinutes();
                         timeInMilli = (TimeUnit.HOURS.toMillis(hours)) + (TimeUnit.MINUTES.toMillis(minutes));
 
-                        timerMessage = new EditText(getApplicationContext());
+                        dialogMessage = new EditText(getApplicationContext());
 
                         new AlertDialog.Builder(TimerActivity.this)
                                 .setTitle("Alarm Message")
                                 .setMessage("Type in a message for your alarm")
-                                .setView(timerMessage)
+                                .setView(dialogMessage)
                                 .setPositiveButton("Set", new DialogInterface.OnClickListener() {
                                     public void onClick(DialogInterface dialog, int x) {
-                                        alarmMessage = timerMessage.getText().toString();
+                                        alarmMessage = dialogMessage.getText().toString();
                                         AlarmReceiver.message = alarmMessage;
                                         setAlarm();
                                     }
