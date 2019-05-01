@@ -105,27 +105,50 @@ public class RecursiveAlarm extends AppCompatActivity {
     }
 
     private void scheduleAlarms() {
+
+        Intent alarmIntent = new Intent(this, AlarmReceiver.class);
+        PendingIntent alarmPendingIntent = PendingIntent.getBroadcast(this, 1, alarmIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+        Calendar c = Calendar.getInstance();
+
+        AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, c.getTimeInMillis(), (AlarmManager.INTERVAL_DAY * 7) + timeInMilli, alarmPendingIntent);
+
         if (mondayBox.isChecked()){
            // Toast.makeText(getApplicationContext(), "Monday Selected", Toast.LENGTH_SHORT).show();
             setAlarm(Calendar.MONDAY);
+            // Reoccurring alarm that will go off every 60 seconds after the initial alarm is set
+            alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, c.getTimeInMillis(), 60000, alarmPendingIntent);
         }
         else if(tuesdayBox.isChecked()){
             setAlarm(Calendar.TUESDAY);
+            // Reoccurring alarm that will go off every 60 seconds after the initial alarm is set
+            alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, c.getTimeInMillis(), 60000, alarmPendingIntent);
+
         }
         else if(wednesBox.isChecked()){
             setAlarm(Calendar.WEDNESDAY);
+            // Reoccurring alarm that will go off every 60 seconds after the initial alarm is set
+            alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, c.getTimeInMillis(), 60000, alarmPendingIntent);
         }
         else if(thursdayBox.isChecked()){
             setAlarm(Calendar.THURSDAY);
+            // Reoccurring alarm that will go off every 60 seconds after the initial alarm is set
+            alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, c.getTimeInMillis(), 60000, alarmPendingIntent);
         }
         else if(fridayBox.isChecked()){
             setAlarm(Calendar.FRIDAY);
+            // Reoccurring alarm that will go off every 60 seconds after the initial alarm is set
+            alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, c.getTimeInMillis(), 60000, alarmPendingIntent);
         }
         else if(saturdayBox.isChecked()){
             setAlarm(Calendar.SATURDAY);
+            // Reoccurring alarm that will go off every 60 seconds after the initial alarm is set
+            alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, c.getTimeInMillis(), 60000, alarmPendingIntent);
         }
         else if(sundayBox.isChecked()){
             setAlarm(Calendar.SUNDAY);
+            // Reoccurring alarm that will go off every 60 seconds after the initial alarm is set
+            alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, c.getTimeInMillis(), 60000, alarmPendingIntent);
         }
     }
 }
