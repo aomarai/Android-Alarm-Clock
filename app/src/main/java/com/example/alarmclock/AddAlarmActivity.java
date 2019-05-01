@@ -1,33 +1,35 @@
 package com.example.alarmclock;
 
 import android.app.AlarmManager;
+import android.app.AlertDialog;
+import android.app.PendingIntent;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CalendarView;
-import android.widget.TextView;
+import android.widget.EditText;
 import android.widget.TimePicker;
-import android.app.PendingIntent;
 import android.widget.Toast;
 
-import java.text.DateFormat;
+
 import java.util.Calendar;
-import java.util.GregorianCalendar;
 
 public class AddAlarmActivity extends AppCompatActivity {
     private TimePicker timePicker1;
     private CalendarView calendarView;
-    private String userMessage;
+    private String alarmMessage;
+    private EditText dialogMessage;
     int selYear, selMonth, selDayOfMonth, hour, minute;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_alarm);
-        timePicker1 = findViewById(R.id.timePicker1);
+        timePicker1 = findViewById(R.id.SingleTimePicker);
         calendarView = findViewById(R.id.setAlarmDate);
 
 
@@ -41,22 +43,36 @@ public class AddAlarmActivity extends AppCompatActivity {
         });
 
 
-        final Button setAlarmButton = findViewById(R.id.button);
+        final Button setAlarmButton = findViewById(R.id.SingleSetAlarm);
         setAlarmButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 hour = timePicker1.getHour();
                 minute = timePicker1.getMinute();
-                //TODO: Set user message from input field once UI is updated
-                AlarmReceiver.message="Date Message Test";
 
-                setAlarm();
-                //Toast.makeText(getApplicationContext(), "Minute " + minute, Toast.LENGTH_SHORT).show();
+
+                dialogMessage = new EditText(getApplicationContext());
+
+                new AlertDialog.Builder(AddAlarmActivity.this)
+                        .setTitle("Alarm Message")
+                        .setMessage("Type in a message for your alarm")
+                        .setView(dialogMessage)
+                        .setPositiveButton("Set", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int x) {
+                                alarmMessage = dialogMessage.getText().toString();
+                                AlarmReceiver.message = alarmMessage;
+                                setAlarm();
+                                Toast.makeText(getApplicationContext(), "Date alarm set", Toast.LENGTH_SHORT).show();
+                            }
+                        })
+                        .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int x) {
+                            }
+                        }).show();
             }
         });
     }
 
-    //TODO: Fire alarm
     private void setAlarm(){
         Intent alarmIntent = new Intent(this, AlarmReceiver.class);
         PendingIntent alarmPendingIntent = PendingIntent.getBroadcast(this, 1, alarmIntent, 0);
@@ -67,11 +83,10 @@ public class AddAlarmActivity extends AppCompatActivity {
         c.set(selYear, selMonth, selDayOfMonth, hour, minute);
         AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
         //Set the alarm
-        alarmManager.set(AlarmManager.RTC_WAKEUP, c.getTimeInMillis(), alarmPendingIntent);
+        alarmManager.setExact(AlarmManager.RTC_WAKEUP, c.getTimeInMillis(), alarmPendingIntent);
 
 
 
     }
 
 }
-

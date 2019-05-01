@@ -18,7 +18,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TimePicker
-        android:id="@+id/timePicker1"
+        android:id="@+id/SingleTimePicker"
         android:layout_width="318dp"
         android:layout_height="317dp"
         android:layout_marginStart="8dp"
@@ -33,7 +33,7 @@
         app:layout_constraintVertical_bias="1.0" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/SingleSetAlarm"
         android:layout_width="46dp"
         android:layout_height="336dp"
         android:layout_marginStart="356dp"

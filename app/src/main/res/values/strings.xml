@@ -9,7 +9,6 @@
     <string name="timer">Timer</string>
     <string name="start">Start!</string>
     <string name="enter_time_for_timer">Enter Time for Timer</string>
-    <string name="s_m_t_w_th_f_sa">S M T W Th F Sa</string>
     <string name="your_current_location_is">Your Current Location is:</string>
     <string name="time_before_location_alarm_goes_off">Time before location alarm goes off?</string>
 </resources>
